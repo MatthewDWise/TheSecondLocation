@@ -17,7 +17,7 @@
         <section id ="search-options" class = "hidden">
 
             <button id ="cuisineButton" value ="cuisine" class ="grab">Cuisine</button>
-            <button id = "locationButton" value ="location" class ="grab">Locaiton</button>
+            <button id = "locationButton" value ="location" class ="grab">Location</button>
             <button id ="goBack1" value = "goBack1">Start Over</button>
             <button id ="goBack2" value = "goBack2">Back</button>
         </section>
@@ -28,7 +28,7 @@
         <section id ="cuisineChoice" class ="hidden">
             <h3>Select the type of Cuisine you wish to search for</h3>
             <label for "food">Select from the options below</label>
-            <select name "foodChoice" id = "userInputCuisine"></select>
+            <select name "foodChoice" id = "userInputCuisine">
             <option value =1>American</option>
             <option value =193>BBQ</option>
             <option value =25>Chinese</option>
@@ -43,6 +43,7 @@
             <option value =67>Korean</option>
             <option value =73>Mexican</option>
             <option value =361>Puerto Rican</option>
+                </select>
             <br>
             <p>How many results would you like?</p><input type ="number" id="resultsNumber" required yes max =50 min=1 value =1>
             <button id ="cuisinechoice" class ="grab">Submit</button>
