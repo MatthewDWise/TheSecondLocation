@@ -1,0 +1,14 @@
+.hidden{
+    display: none;
+}
+
+#locationButton, #cuisineButton {
+    width:100px;
+    height: 100px;
+}
+
+#morning, #afternoon, #evening{
+    border-radius:80%;
+    height: 150px;
+    width: 150px;
+}
