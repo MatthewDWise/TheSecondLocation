@@ -1,4 +1,4 @@
-const MAPQUESTURL = "https://open.mapquestapi.com/geocoding/v1/address?key=71mWauomnixpVMPwLE2ClAbNSJir7B8C&inFormat=kvp&outFormat=json&"
+const MAPQUESTURL = "https://open.mapquestapi.com/geocoding/v1/address?key=7lmWauomnixpVMPwLE2ClAbNSJir7B8C&inFormat=kvp&outFormat=json&"
 const ZOMATOURL = "https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city"
 let userAddress = ["Philadelphia", "PA"]
 let timeOfDate = ""
@@ -142,6 +142,7 @@ function restaurantSearch(){
         "cuisines": userCuisineFormat,
     }
     let zomSearch = Object.keys(restPARAMS).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(restPARAMS[key])}`)
+    zomSearchURL = (ZOMATOURL + '&'+ zomSearch.join('&'))
     zomRequest(zomSearchURL)
 }
 
