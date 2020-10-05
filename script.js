@@ -13,6 +13,7 @@ let secondSearch = 0
 let secondArray = []
 let secondSearchDisplay = ""
 let secondCuisine = 0
+let randomArray = []
 
 function morningTime(){
     $("#morning").on("click", event => {
