@@ -163,7 +163,7 @@ function secondLocation(){
     } else if (timeOfDate == "afternoon"){
         secondSearch = "11"
         secondCuisine = "100"}
-        else (timeOfDate =="evening"){
+        else {(timeOfDate =="evening")
         secondSearch = "14"
         secondCuisine = "268"
     } secondLocationSearch();
