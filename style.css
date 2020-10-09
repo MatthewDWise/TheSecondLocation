@@ -67,6 +67,13 @@ img{
     width:130px;
 }
 
+#morning:hover, #afternoon:hover, #evening:hover{
+  opacity:1;
+  transform: skew(-2deg);
+  box-shadow: 5px 5px 5px rgb(65, 64, 64);
+  text-shadow: 1px 1px 1px black;
+}
+
 header{
     border-radius: 5px;
     background-color: rgb(219, 179,150);
