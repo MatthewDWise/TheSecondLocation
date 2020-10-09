@@ -45,7 +45,7 @@ li{
 }
 
 #searchResults, #secondSearchResults{
-    text-align: left;
+    text-align: center;
     background-color: lightgray;
     margin-left: 10%;
     margin-right: 10%;
