@@ -6,7 +6,7 @@ let latLong=[]
 let lat = ''
 let long = ''
 let userCount = 1
-let userRadiusFormat = 1000;
+let userRadiusFormat = 100;
 let userCuisine = ''
 let userCuisineFormat = 1
 let secondSearch = 0
@@ -15,6 +15,7 @@ let secondSearchDisplay = ""
 let secondCuisine = 0
 let randomArray = []
 
+//set time of date variable to provide specific recommendations for second location
 function morningTime(){
     $("#morning").on("click", event => {
         timeOfDate = "morning";
@@ -23,7 +24,7 @@ function morningTime(){
         console.log(timeOfDate)
     })
 }
-
+//set time of date variable to provide specific recommendations for second location
 function afternoonTime(){
     $("#afternoon").on("click", event => {
         timeOfDate = "afternoon";
@@ -32,7 +33,7 @@ function afternoonTime(){
         console.log(timeOfDate)
     })
 }
-
+//set time of date variable to provide specific recommendations for second location
 function eveningTime(){
     $("#evening").on("click", event => {
         timeOfDate = "evening";
@@ -42,35 +43,7 @@ function eveningTime(){
     })
 }
 
-function startOver(){
-    $("#goBack1").on("click", event => {
-        $("#time-of-day").removeClass("hidden");
-        $("#search-options").addClass("hidden");
-        $("#cuisineChoice").addClass("hidden");
-        $("#location-choice").addClass("hidden");
-        $("#cuisineButton").removeClass("hidden");
-        $("#locationButton").removeClass("hidden");
-        $("#goBack2").addClass("hidden");
-        $("#searchResults").addClass("hidden");
-        $("#secondSearchResults").addClass("hidden");
-        $("#userInputAddress").val(' ')
-    })
-}
-
-function goBack2(){
-    $("#goBack2").on("click", event => {
-        $("#cuisineChoice").addClass("hidden");
-        $("#location-choice").addClass("hidden");
-        $("#cusineButton").removeClass("hidden");
-        $("#locationButton").removeClass("hidden");
-        $("#goBack2").addClass("hidden");
-        $("#searchResults").addClass("hidden");
-        $("#secondSearchResults").addClass("hidden");
-        $("#userInputAddress").val(" ");
-        $("#secondSearchResults").addClass("hidden");
-    })
-}
-
+//hide location information and show options to select food type
 function food() {
     $("#cuisineButton").on("click", event => {
         $("#cuisineChoice").removeClass("hidden");
@@ -82,7 +55,7 @@ function food() {
     })
     inputCuisine();
 }
-
+//hide cuisine information and show options to select location
 function place(){
     $("#locationButton").on("click", event => {
         $("#location-choice").removeClass("hidden");
@@ -93,7 +66,7 @@ function place(){
         grabAddress();
     })
 }
-
+//take user address and convert to string for fetch to Mapquest for latitude and longitude
 function grabAddress(userInputAddress){
     $("#locationchoice").on("click", event => {
         event.preventDefault();
@@ -106,7 +79,7 @@ function grabAddress(userInputAddress){
         formatMapQuestSearch(userAddress);
     })
 }
-
+//take user address and combine in mapquests required format, send to fetchMapQuestSearch to send request
 function formatMapQuestSearch(userAddress){
     const MPPARAMS = {
         "location": userAddress,
@@ -116,7 +89,7 @@ function formatMapQuestSearch(userAddress){
     let formattedAddressQuery = MAPQUESTURL + addressQuery.join("&");
     fetchMapQuestSearch(formattedAddressQuery)
 }
-
+//send request to Mapquest, send results to handleAddress function
 function fetchMapQuestSearch(formattedAddressQuery){
     fetch(formattedAddressQuery)
     .then(response => response.json())
@@ -125,14 +98,14 @@ function fetchMapQuestSearch(formattedAddressQuery){
     .then($("#cuisineChoice").removeClass("hidden"))
     .then($("#cuisinechoice").removeClass("hidden"))
 }
-
+//set variables for latitude and longitude for Zomato API request
 function handleAddress(responseJson){
     latLong = responseJson.results[0].locations[0].latLng;
     lat = latLong.lat;
     long = latLong.lng;
     inputCuisine();
 }
-
+//format request to Zomato and send to ZomRequest to fetch
 function restaurantSearch(){
     const restPARAMS = {
         "count": userCount,
@@ -145,7 +118,7 @@ function restaurantSearch(){
     zomSearchURL = (ZOMATOURL + '&'+ zomSearch.join('&'))
     zomRequest(zomSearchURL)
 }
-
+//fetch restaurant information from Zomato, send results to displayResults function, call secondLocation function to provide suggestions
 function zomRequest(zomSearchURL){
     fetch(zomSearchURL, {
         headers: {
@@ -157,7 +130,7 @@ function zomRequest(zomSearchURL){
     .catch(error => alert(error))
     secondLocation();
 }
-
+//set variables for secondLocation request based on prior variable timeOfDate
 function secondLocation(){
     if(timeOfDate == "morning"){
         secondSearch = "6"
@@ -170,7 +143,7 @@ function secondLocation(){
         secondCuisine = "268"
     } secondLocationSearch();
 }
-
+//format secondLocation parameters and send to performSecondSearch function
 function secondLocationSearch(){
     secondPARAMS = {
         "lat": lat,
@@ -183,7 +156,7 @@ function secondLocationSearch(){
     secondSearchURL = (ZOMATOURL + '&' + formatSecondSearch.join('&'))
     performSecondSearch(secondSearchURL)
 }
-
+//send fetch request to Zomato for suggestions, send results to displaySecondResults 
 function performSecondSearch(){
     fetch(secondSearchURL, {
         headers: {
@@ -196,14 +169,14 @@ function performSecondSearch(){
 }
 
 
-
+//create random numbers to use to display second search resutls, send array to function checkIt to make sure there are no repeating variable numbers
 function popArray(){
     for(let i = 0; i <3; i++){
         let k =(Math.floor(Math.random()*11))
         randomArray.push(k);
         }checkIt(randomArray)
 }
-
+//check random numbers against themselves and alter so no duplicate suggestions provided to user
 function checkIt(randomArray){
     for(let i = 0; i < randomArray.length; i++){
         if(randomArray[0] == randomArray[1] || randomArray[0] == randomArray[2]){
@@ -213,7 +186,7 @@ function checkIt(randomArray){
         }
     }
 }
-
+//format second search results and display
 function displaySecondResults(responseJson){
     let secondResults = {responseJson};
     secondSearchDisplay = "<h2>After your meal, try these locations to keep the date going!</h2>";
@@ -225,19 +198,20 @@ function displaySecondResults(responseJson){
         $("#secondSearchResults").html(secondSearchDisplay)
     }
 }
-
+//format results and display results
 function displayResults(responseJson){
     let results = {responseJson}
     let resultsForDisplay = "<h2>Restaurant results:</h2>"
     for(let i = 0; i < responseJson.restaurants.length; i++){
-        resultsForDisplay += `<h3><li><a href ="${results.responseJson.restaurants[i].restaurant.menu_url}" target ="_blank">${results.responseJson.restaurants[i].restaurant.name}</a><br>
+        resultsForDisplay += `<h3><li><a href ="${results.responseJson.restaurants[i].restaurant.menu_url}" target ="_blank"><img alt ="Picture of ${results.responseJson.restaurants[i].restaurant.name}" src=
+        "${results.responseJson.restaurants[i].restaurant.thumb}"><br>${results.responseJson.restaurants[i].restaurant.name}</a><br>
         ${results.responseJson.restaurants[i].restaurant.location.address}<br><a href="tel:%{results.responseJson.restaurants[i].rstaurant.phone_numbers}">${results.responseJson.restaurants[i].restaurant.phone_numbers}</a>
         <br></li></h3>`
     }
     $("#searchResults").removeClass("hidden");
     $("#searchResults").html(resultsForDisplay)
 }
-
+//handle user input cuisine and requested results numbers
 function inputCuisine(){
     $("#cuisinechoice").on("click", event => {
         event.preventDefault();
@@ -249,6 +223,24 @@ function inputCuisine(){
     })
 }
 
+//expand about section on click
+function expandButton(){
+    $("#expand").on("click", event => {
+        $("#aboutSection").slideUp();
+        $("#retract").removeClass("hidden");
+        $("#expand").addClass("hidden");
+        retractButton();
+    })
+}
+//retract about section on click
+function retractButton(){
+    $("#retract").on("click", event => {
+        $("#aboutSection").slideUp();
+        $("#retract").addClass('hidden');
+        $("#expand").removeClass('hidden');
+    })
+}
+//watch for pageload and run needed functions
 function watchForm(){
     food();
     place();
@@ -258,6 +250,7 @@ function watchForm(){
     startOver();
     goBack2();
     popArray();
+    expandButton();
 }
 
 $(watchForm)
