@@ -247,8 +247,6 @@ function watchForm(){
     morningTime();
     afternoonTime();
     eveningTime();
-    startOver();
-    goBack2();
     popArray();
     expandButton();
 }
