@@ -117,6 +117,8 @@ a.startOver:visited, #expand:visited, #retract:visited {
     color: white;
     text-decoration: none;
     background-color: black;
+     border: 1px solid black;
+    margin-top:20px;
 }
 
 a.zomLink{
