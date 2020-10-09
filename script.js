@@ -226,7 +226,7 @@ function inputCuisine(){
 //expand about section on click
 function expandButton(){
     $("#expand").on("click", event => {
-        $("#aboutSection").slideUp();
+        $("#aboutSection").slideDown();
         $("#retract").removeClass("hidden");
         $("#expand").addClass("hidden");
         retractButton();
