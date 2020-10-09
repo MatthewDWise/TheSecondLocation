@@ -10,20 +10,26 @@
     <body>
         <header>
             <h1>The Second Location</h1>
-            <h2>Find your restaurant and then keep your date going with The Second Location based on the time of day</h2>
+            <h2>Find your restaurant and then keep your date going with The Second Location based on the time of day</h2><br/>
+            <button type = "button" id = "expand">About</button>
+            <button type = "button" id = "retract" class = "hidden">About</button>
+            <div class = "hidden" id = "aboutSection">
+                <p><b>The Second Location is a search tool which utilizes <a href = "https://www.Zomato.com"> Zomato.com</a> to provide restaurant results.  Then we provide
+                    you a second location for coffee, desser, or drinks.  You can choose to search all of Philadelphia by selecting Cuisine, or enter a specific address to search
+                    near.  Don't worry, if you choose to search by location you still get to choose what type of food you prefer!  Now let's get started!</b></p></div>
         </header>
         <section id ="time-of-day">
             <h2>What time of day are you planning for?</h2>
-            <button id="morning" value ="morning" class ="grab">Morning</button>
-            <button id="afternoon" value ="afternoon" class ="grab">Afternoon</button>
-            <button id ="evening" value ="evening" class = "grab">Evening</button>
+            <button id="morning" value ="morning" class ="grab"><b>Morning</b></button><br/>
+            <button id="afternoon" value ="afternoon" class ="grab"><b>Afternoon</b></button><br/>
+        <button id ="evening" value ="evening" class = "grab"><b>Evening</b></button><br/>
         </section>
         <section id ="search-options" class = "hidden">
             <h3>How would you like to search?</h3>
-            <button id ="cuisineButton" value ="cuisine" class ="grab">Cuisine</button>
-            <button id = "locationButton" value ="location" class ="grab">Location</button>
-            <button id ="goBack1" value = "goBack1">Start Over</button>
-            <button id ="goBack2" value = "goBack2">Back</button>
+            <button id ="cuisineButton" value ="cuisine" class ="grab"><b>Cuisine</b></button>
+            <button id = "locationButton" value ="location" class ="grab"><b>Location</b></button>
+            <a class = "startOver" href = "https://matthewdwise.github.io/TheSecondLocation/"><b>Go Back</b></a>
+            
         </section>
         <section id = "location-choice" class = "hidden">
             <h3>Enter the address in Philadelphia, PA for your search</h3>
@@ -35,7 +41,10 @@
             <label>Select from the options below</label>
             <select id = "userInputCuisine">
             <option value ='1'>American</option>
+            <option value ='151'>Argetine</option>
             <option value ='193'>BBQ</option>
+            <option value = '132'>Belgian</option>
+            <option value = '159'>Brazilian</option>
             <option value ='25'>Chinese</option>
             <option value ='149'>Ethiopian</option>
             <option value ='45'>French</option>
