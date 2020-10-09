@@ -25,7 +25,7 @@
         <button id ="evening" value ="evening" class = "grab"><b>Evening</b></button><br/>
         </section>
         <section id ="search-options" class = "hidden">
-            <h3>How would you like to search?</h3>
+            <h3 id = "searchQuestion">How would you like to search?</h3>
             <button id ="cuisineButton" value ="cuisine" class ="grab"><b>Cuisine</b></button>
             <button id = "locationButton" value ="location" class ="grab"><b>Location</b></button>
             <a class = "startOver" href = "https://matthewdwise.github.io/TheSecondLocation/"><b>Go Back</b></a>
@@ -38,7 +38,7 @@
         </section>
         <section id ="cuisineChoice" class ="hidden">
             <h3>Select the type of Cuisine you wish to search for</h3>
-            <label>Select from the options below</label>
+            <label><b>Select from the options below</b></label>
             <select id = "userInputCuisine">
             <option value ='1'>American</option>
             <option value ='151'>Argetine</option>
@@ -59,7 +59,7 @@
             <option value ='361'>Puerto Rican</option>
                 </select>
             <br/>
-            <p>How many results would you like?</p><input type ="number" id="resultsNumber" required = "true" max ='50' min='1' value ='1'/>
+            <p><b>How many results would you like?</b></p><input type ="number" id="resultsNumber" required = "true" max ='50' min='1' value ='1'/>
             <button id ="cuisinechoice" class ="grab">Submit</button>
         </section>
         <section id ="searchResults" class ="hidden">
