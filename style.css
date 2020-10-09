@@ -102,7 +102,7 @@ a.startOver.link, #expand.link, #retract.link {
     padding: 8px;
     opacity: 0.8;
     color: #000000;
-    margin:20px;
+    margin-top:20px;
 }
 
 a.startOver:hover, #expand:hover, #retract:hover {
