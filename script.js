@@ -52,6 +52,7 @@ function food() {
         $("#locationButton").addClass("hidden");
         $("#goBack2").removeClass("hidden");
         $("#cuisinechoice").removeClass("hidden");
+        $("#searchQuestion").addClass('hidden');
     })
     inputCuisine();
 }
@@ -63,6 +64,7 @@ function place(){
         $("#cuisineButton").addClass("hidden");
         $("#locationButton").addClass("hidden");
         $("#goBack2").removeClass("hidden");
+        $("#searchQuestion").addClass('hidden');
         grabAddress();
     })
 }
