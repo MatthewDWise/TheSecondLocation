@@ -146,15 +146,19 @@ a.zomLink{
         height: 100px;
         width: 100px;
         background-color: #FECDAA;
-        font-family: 'Fredericka the Great'; cursive;
+        font-family: 'Fredericka the Great', cursive;
         opacity: 0.8;
         color: #074F57;
         font-size: 10px;
+    }
+    main{
+        display:flex;
     }
     
     #searchResults, #secondSearchResults{
         text-align: left;
         background-color: lightgray;
+        flex-wrap: wrap;
     }
     li{
         width: 100%;
