@@ -53,6 +53,8 @@ function food() {
         $("#goBack2").removeClass("hidden");
         $("#cuisinechoice").removeClass("hidden");
         $("#searchQuestion").addClass('hidden');
+        $(".startOver1").addClass('hidden');
+        $(".startOver2").removeClass('hidden');
     })
     inputCuisine();
 }
@@ -65,6 +67,8 @@ function place(){
         $("#locationButton").addClass("hidden");
         $("#goBack2").removeClass("hidden");
         $("#searchQuestion").addClass('hidden');
+        $(".startOver1").addClass('hidden');
+        $(".startOver2").removeClass('hidden');
         grabAddress();
     })
 }
@@ -197,7 +201,10 @@ function displaySecondResults(responseJson){
         ${secondResults.responseJson.restaurants[randomArray[i]].restaurant.name}</a><br>${secondResults.responseJson.restaurants[randomArray[i]].restaurant.location.address}<br>
         <a href ="tel:${secondResults.responseJson.restaurants[randomArray[i]].restaurant.phone_numbers}">${secondResults.responseJson.restaurants[randomArray[i]].restaurant.phone_numbers}</a><br></li></h3>`
         $("#secondSearchResults").removeClass("hidden");
-        $("#secondSearchResults").html(secondSearchDisplay)
+        $("#secondSearchResults").html(secondSearchDisplay);
+        $(".startOver1").addClass('hidden');
+        $(".startOver2").addClass('hidden');
+        $("#buttonHolder").removeClass('hidden');
     }
 }
 //format results and display results
