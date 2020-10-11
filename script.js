@@ -193,9 +193,9 @@ function displaySecondResults(responseJson){
     let secondResults = {responseJson};
     secondSearchDisplay = "<h2>After your meal, try these locations to keep the date going!</h2>";
     for(let i = 0; i < 3; i++){
-        secondSearchDisplay += `<h4><li><a href = "${secondResults.responseJson.restaurants[randomArray[i]].restaurant.menu_url}" target ="_blank">
+        secondSearchDisplay += `<h3><li><a href = "${secondResults.responseJson.restaurants[randomArray[i]].restaurant.menu_url}" target ="_blank">
         ${secondResults.responseJson.restaurants[randomArray[i]].restaurant.name}</a><br>${secondResults.responseJson.restaurants[randomArray[i]].restaurant.location.address}<br>
-        <a href ="tel:${secondResults.responseJson.restaurants[randomArray[i]].restaurant.phone_numbers}">${secondResults.responseJson.restaurants[randomArray[i]].restaurant.phone_numbers}</a><br></li></h4>`
+        <a href ="tel:${secondResults.responseJson.restaurants[randomArray[i]].restaurant.phone_numbers}">${secondResults.responseJson.restaurants[randomArray[i]].restaurant.phone_numbers}</a><br></li></h3>`
         $("#secondSearchResults").removeClass("hidden");
         $("#secondSearchResults").html(secondSearchDisplay)
     }
