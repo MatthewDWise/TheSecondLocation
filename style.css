@@ -107,7 +107,7 @@ a.startOver.link, #expand.link, #retract.link {
     margin-top:20px;
 }
 
-#expand, #retract{
+a.startOver{
     text-decoration: none;
     border: 1px solid black;
     background-color:lightgray;
