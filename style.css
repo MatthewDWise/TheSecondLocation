@@ -96,7 +96,7 @@ body{
     color: black;
 }
 
-a.startOver.link, #expand.link, #retract.link {
+a.startOver.link1, a.startOver.link2, a.startOver.link3, #expand.link, #retract.link {
     text-decoration: none;
     border: 1px solid black;
     background-color: lightgray;
@@ -118,7 +118,7 @@ a.startOver{
     margin-top:20px;
 }
 
-a.startOver:hover, #expand:hover, #retract:hover {
+a.startOver1:hover,a.startOver2:hover,a.startOver3:hover, #expand:hover, #retract:hover {
     opacity:1;
     transform: skew(1deg);
     box-shadow: 5px 5px 5px rgb(65, 64, 64);
@@ -126,7 +126,7 @@ a.startOver:hover, #expand:hover, #retract:hover {
     color: gray;
 }
 
-a.startOver:visited, #expand:visited, #retract:visited {
+a.startOver1:visited, a.startOver2:visited, a.startOver3:visited, #expand:visited, #retract:visited {
     color: white;
     text-decoration: none;
     background-color: black;
@@ -162,5 +162,8 @@ a.zomLink{
     }
     li{
         width: 100%;
+        text-align: center;
+        margin-left: 0%;
+        padding-left: 0%;
     }
 }
