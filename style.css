@@ -40,6 +40,7 @@
 
 li{
     margin-left: 30.5%;
+    margin-right: 30.5%;
     list-style: none;
     width: 33%;
 }
@@ -103,6 +104,17 @@ a.startOver.link, #expand.link, #retract.link {
     padding: 8px;
     opacity: 0.8;
     color: #000000;
+    margin-top:20px;
+}
+
+#expand, #retract{
+    text-decoration: none;
+    border: 1px solid black;
+    background-color:lightgray;
+    border-radius:8px;
+    padding: 8px;
+    opacity: 0.8;
+    color: white;
     margin-top:20px;
 }
 
