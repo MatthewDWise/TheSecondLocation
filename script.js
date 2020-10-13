@@ -226,7 +226,7 @@ function inputCuisine(){
         event.preventDefault();
         userCuisine = $("#userInputcuisine").val();
         userCount = $("#resultsNumber").val();
-        usercuisineFormat = userCuisine;
+        userCuisineFormat = userCuisine;
         $("#cuisineChoice").addClass("hidden");
         restaurantSearch();
     })
